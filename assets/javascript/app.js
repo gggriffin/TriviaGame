@@ -17,7 +17,7 @@ function hideAll () {
     $("#questionDiv8").hide();
     $("#questionDiv9").hide();
     $("#questionDiv10").hide();
-    $("endDiv").hide();
+    $("#endDiv").hide();
 }
 
  function questionNumberCheck () {
@@ -31,20 +31,67 @@ function hideAll () {
     } 
     else if (questionNumber === 3) {
         $("#questionDiv3").show();
+    }
+    else if (questionNumber === 4) {
+        $("#questionDiv4").show();
+    }
+    else if (questionNumber === 5) {
+        $("#questionDiv5").show();
+    }
+    else if (questionNumber === 6) {
+        $("#questionDiv6").show();
+    }
+    else if (questionNumber === 7) {
+        $("#questionDiv7").show();
+    }
+    else if (questionNumber === 8) {
+        $("#questionDiv8").show();
+    }
+    else if (questionNumber === 9) {
+        $("#questionDiv9").show();
+    }
+    else if (questionNumber === 10) {
+        $("#questionDiv10").show();
+    }
+    else if (questionNumber === 11) {
+        displayResults();
+        $("#endDiv").show();
     } 
     else {
-        $("#questionDiv4").show();
+        $("#startDiv").show();
+        questionNumber = 0;
+        correctGuess = 0;
+        incorrectGuess = 0;
+        unansweredGuess = 0;
 
     }
 }   
+
+    function timerReset() {
+        
+    }
+
+    function displayResults() {
+    $("#correctDisplayDiv").text("Correct: " + correctGuess);
+    $("#incorrectDisplayDiv").text("Incorrect: " + incorrectGuess);
+    $("#unansweredDisplayDiv").text("Unanswered: " + unansweredGuess);
+        if (correctGuess === 10) {
+            $("#totalDisplayDiv").text("You scored 100%!!! You must be a local!");
+        } else {
+    $("#totalDisplayDiv").text("You scored: " + ((correctGuess % 10)*10)+"%");
+        }
+    }
 
 
 $(document).ready(function () {
     hideAll();
     $("#startDiv").show();
+    //display timer in .timeRemaining
+    //if timer gets to 0, unansweredGuess++ questionNumberCheck()
+    //reset timer after correct/incorrect button click
 
 })
-//Click #start button to start game - #start button starts visible, hides on click, starts nextQuestion function
+
 $("#startButton").click(function () {
     questionNumberCheck();
     console.log("Correct: " + correctGuess)
@@ -52,7 +99,7 @@ $("#startButton").click(function () {
     console.log("questionNumber: " + questionNumber)
 });
 
-$("#correctAnswer").click(function () {
+$(".correctAnswer").click(function () {
     correctGuess++
     questionNumberCheck();
     console.log("Correct: " + correctGuess)
@@ -61,7 +108,7 @@ $("#correctAnswer").click(function () {
 
 });
 
-$("#incorrectAnswer").click(function () {
+$(".incorrectAnswer").click(function () {
     incorrectGuess++
     questionNumberCheck();
     console.log("Correct: " + correctGuess)
