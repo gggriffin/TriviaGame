@@ -1,4 +1,3 @@
-//Variables: correct, incorrect, unanswered
 var correctGuess = 0;
 var incorrectGuess = 0;
 var unansweredGuess = 0;
@@ -25,10 +24,11 @@ function hideAll () {
     if (questionNumber === 1) {
         hideAll();
         timerReset();
-        $("#questionDiv1").show(); //hideAll / display current div / hide current answer div / show current answer div on click or timeout /  wait 5 seconds / hideAll
+        $("#questionDiv1").show(); 
         $(".answerDiv1").hide();              
     } 
     else if (questionNumber === 2) {
+        $(".correctAnswer").hide();
         $(".incorrectAnswer").hide();
         $(".answerDiv1").show();
         $(".timeRemaining").hide();
@@ -37,6 +37,7 @@ function hideAll () {
         hideAll();
         timerReset();           
         $("#questionDiv2").show();
+        $(".correctAnswer").show();
         $(".incorrectAnswer").show();
         $(".answerDiv2").hide();
         $(".timeRemaining").show();
@@ -46,6 +47,7 @@ function hideAll () {
        
     } 
     else if (questionNumber === 3) {
+        $(".correctAnswer").hide();
         $(".incorrectAnswer").hide();
         $(".answerDiv2").show();
         $(".timeRemaining").hide();
@@ -55,6 +57,7 @@ function hideAll () {
         hideAll();
         timerReset();
         $("#questionDiv3").show();
+        $(".correctAnswer").show();
         $(".incorrectAnswer").show();
         $(".answerDiv3").hide();
         $(".timeRemaining").show();    
@@ -64,6 +67,7 @@ function hideAll () {
 
     }
     else if (questionNumber === 4) {
+        $(".correctAnswer").hide();
         $(".incorrectAnswer").hide();
         $(".answerDiv3").show();
         $(".timeRemaining").hide();
@@ -72,6 +76,7 @@ function hideAll () {
         hideAll();
         timerReset();
         $("#questionDiv4").show();
+        $(".correctAnswer").show();
         $(".incorrectAnswer").show();
         $(".answerDiv4").hide();
         $(".timeRemaining").show();    
@@ -81,6 +86,7 @@ function hideAll () {
     }
     else if (questionNumber === 5) {
         $(".incorrectAnswer").hide();
+        $(".correctAnswer").hide();
         $(".answerDiv4").show();
         $(".timeRemaining").hide();
 
@@ -88,6 +94,7 @@ function hideAll () {
         hideAll();
         timerReset();
         $("#questionDiv5").show();
+        $(".correctAnswer").show();
         $(".incorrectAnswer").show();
         $(".answerDiv5").hide();
         $(".timeRemaining").show();
@@ -98,6 +105,7 @@ function hideAll () {
 
     }
     else if (questionNumber === 6) {
+        $(".correctAnswer").hide();
         $(".incorrectAnswer").hide();
         $(".answerDiv5").show();
         $(".timeRemaining").hide();
@@ -105,6 +113,7 @@ function hideAll () {
         function showDiv6(){
         hideAll();
         timerReset();
+        $(".correctAnswer").show();
         $("#questionDiv6").show();
         $(".incorrectAnswer").show();
         $(".answerDiv6").hide();
@@ -117,12 +126,14 @@ function hideAll () {
     }
     else if (questionNumber === 7) {
         $(".incorrectAnswer").hide();
+        $(".correctAnswer").hide();
         $(".answerDiv6").show();
         $(".timeRemaining").hide();
 
         function showDiv7(){
         hideAll();
         timerReset();
+        $(".correctAnswer").show();
         $("#questionDiv7").show();
         $(".incorrectAnswer").show();
         $(".answerDiv7").hide();
@@ -134,6 +145,7 @@ function hideAll () {
 
     }
     else if (questionNumber === 8) {
+        $(".correctAnswer").hide();
         $(".incorrectAnswer").hide();
         $(".answerDiv7").show();
         $(".timeRemaining").hide();
@@ -141,6 +153,7 @@ function hideAll () {
         function showDiv8(){
         hideAll();
         timerReset();
+        $(".correctAnswer").show();
         $("#questionDiv8").show();
         $(".incorrectAnswer").show();
         $(".answerDiv8").hide();
@@ -155,10 +168,12 @@ function hideAll () {
         $(".incorrectAnswer").hide();
         $(".answerDiv8").show();
         $(".timeRemaining").hide();
+        $(".correctAnswer").hide();
 
         function showDiv9(){
         hideAll();
         timerReset();
+        $(".correctAnswer").show();
         $("#questionDiv9").show();
         $(".incorrectAnswer").show();
         $(".answerDiv9").hide();
@@ -173,10 +188,12 @@ function hideAll () {
         $(".incorrectAnswer").hide();
         $(".answerDiv9").show();
         $(".timeRemaining").hide();
+        $(".correctAnswer").hide();
 
         function showDiv10(){
         hideAll();
         timerReset();
+        $(".correctAnswer").show();
         $("#questionDiv10").show();
         $(".incorrectAnswer").show();
         $(".answerDiv10").hide();
@@ -191,11 +208,13 @@ function hideAll () {
         $(".incorrectAnswer").hide();
         $(".answerDiv10").show();
         $(".timeRemaining").hide();
+        $(".correctAnswer").hide();
 
         function showDiv11(){
         hideAll();
         displayResults();
         $("#endDiv").show();
+        $(".correctAnswer").show();
         $(".incorrectAnswer").show();
         $(".answerDiv10").hide();
      
@@ -245,10 +264,7 @@ function timerReset() {
 $(document).ready(function () {
     hideAll();
     $("#startDiv").show();
-    //display timer in .timeRemaining
-    //if timer gets to 0, unansweredGuess++ questionNumberCheck()
-    //reset timer after correct/incorrect button click
-
+    
 })
 
 $("#startButton").click(function () {
