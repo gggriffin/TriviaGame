@@ -2,8 +2,8 @@
 var correctGuess = 0;
 var incorrectGuess = 0;
 var unansweredGuess = 0;
-var questionNumber = 0; //increase after each answer - if (questionNumber = [n]) {
-                        //                                 $("#questionDiv[n]").show()
+var questionNumber = 0;
+var timeRemaining = 30;
 
 function hideAll () {
     $("#startDiv").hide();
@@ -20,42 +20,78 @@ function hideAll () {
     $("#endDiv").hide();
 }
 
+function showAnswer() {
+    $("")
+}
+
+
  function questionNumberCheck () {
     hideAll();
     questionNumber++
     if (questionNumber === 1) {
-        $("#questionDiv1").show();              
+        $("#questionDiv1").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv1").hide();              
     } 
     else if (questionNumber === 2) {
         $("#questionDiv2").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv2").hide();              
+
     } 
     else if (questionNumber === 3) {
         $("#questionDiv3").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv3").hide();              
+
     }
     else if (questionNumber === 4) {
         $("#questionDiv4").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv4").hide();              
+
     }
     else if (questionNumber === 5) {
         $("#questionDiv5").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv5").hide();              
+
     }
     else if (questionNumber === 6) {
         $("#questionDiv6").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv6").hide();              
+
     }
     else if (questionNumber === 7) {
         $("#questionDiv7").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv7").hide();              
+
     }
     else if (questionNumber === 8) {
         $("#questionDiv8").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv8").hide();              
+
     }
     else if (questionNumber === 9) {
         $("#questionDiv9").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv9").hide();              
+
     }
     else if (questionNumber === 10) {
         $("#questionDiv10").show();
+        $(".congratsDiv").hide();
+        $(".answerDiv10").hide();              
+
     }
     else if (questionNumber === 11) {
         displayResults();
         $("#endDiv").show();
+        $(".answerDiv1").hide();              
+
     } 
     else {
         $("#startDiv").show();
@@ -64,11 +100,14 @@ function hideAll () {
         incorrectGuess = 0;
         unansweredGuess = 0;
 
-    }
+    };
 }   
+    function countdown() {
+        timeRemaining--;
+    };
 
     function timerReset() {
-        
+        $(".")
     }
 
     function displayResults() {
@@ -80,7 +119,7 @@ function hideAll () {
         } else {
     $("#totalDisplayDiv").text("You scored: " + ((correctGuess % 10)*10)+"%");
         }
-    }
+    };
 
 
 $(document).ready(function () {
