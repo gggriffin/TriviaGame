@@ -20,29 +20,26 @@ function hideAll () {
     $("#endDiv").hide();
 }
 
-function showAnswer() {
-    $("")
-}
-
-
  function questionNumberCheck () {
     questionNumber++
     if (questionNumber === 1) {
         hideAll();
+        timerReset();
         $("#questionDiv1").show(); //hideAll / display current div / hide current answer div / show current answer div on click or timeout /  wait 5 seconds / hideAll
-        $(".congratsDiv").hide();
         $(".answerDiv1").hide();              
     } 
     else if (questionNumber === 2) {
         $(".incorrectAnswer").hide();
         $(".answerDiv1").show();
+        $(".timeRemaining").hide();
         
         function showDiv2(){
-        hideAll();           
+        hideAll();
+        timerReset();           
         $("#questionDiv2").show();
         $(".incorrectAnswer").show();
-        $(".congratsDiv").hide();
         $(".answerDiv2").hide();
+        $(".timeRemaining").show();
         };
         
         setTimeout(showDiv2, 5000);
@@ -51,13 +48,16 @@ function showAnswer() {
     else if (questionNumber === 3) {
         $(".incorrectAnswer").hide();
         $(".answerDiv2").show();
+        $(".timeRemaining").hide();
+
 
         function showDiv3(){
         hideAll();
+        timerReset();
         $("#questionDiv3").show();
         $(".incorrectAnswer").show();
-        $(".congratsDiv").hide();
-        $(".answerDiv3").hide();    
+        $(".answerDiv3").hide();
+        $(".timeRemaining").show();    
         }
 
         setTimeout(showDiv3, 5000);
@@ -66,13 +66,15 @@ function showAnswer() {
     else if (questionNumber === 4) {
         $(".incorrectAnswer").hide();
         $(".answerDiv3").show();
+        $(".timeRemaining").hide();
 
         function showDiv4(){
         hideAll();
+        timerReset();
         $("#questionDiv4").show();
         $(".incorrectAnswer").show();
-        $(".congratsDiv").hide();
-        $(".answerDiv4").hide();    
+        $(".answerDiv4").hide();
+        $(".timeRemaining").show();    
         }
 
         setTimeout(showDiv4, 5000);
@@ -80,13 +82,16 @@ function showAnswer() {
     else if (questionNumber === 5) {
         $(".incorrectAnswer").hide();
         $(".answerDiv4").show();
+        $(".timeRemaining").hide();
 
         function showDiv5(){
         hideAll();
+        timerReset();
         $("#questionDiv5").show();
         $(".incorrectAnswer").show();
-        $(".congratsDiv").hide();
-        $(".answerDiv5").hide();    
+        $(".answerDiv5").hide();
+        $(".timeRemaining").show();
+    
         }
 
         setTimeout(showDiv5, 5000);              
@@ -95,13 +100,16 @@ function showAnswer() {
     else if (questionNumber === 6) {
         $(".incorrectAnswer").hide();
         $(".answerDiv5").show();
+        $(".timeRemaining").hide();
 
         function showDiv6(){
         hideAll();
+        timerReset();
         $("#questionDiv6").show();
         $(".incorrectAnswer").show();
-        $(".congratsDiv").hide();
-        $(".answerDiv6").hide();    
+        $(".answerDiv6").hide();
+        $(".timeRemaining").show();
+    
         }
 
         setTimeout(showDiv6, 5000);              
@@ -110,13 +118,16 @@ function showAnswer() {
     else if (questionNumber === 7) {
         $(".incorrectAnswer").hide();
         $(".answerDiv6").show();
+        $(".timeRemaining").hide();
 
         function showDiv7(){
         hideAll();
+        timerReset();
         $("#questionDiv7").show();
         $(".incorrectAnswer").show();
-        $(".congratsDiv").hide();
-        $(".answerDiv7").hide();    
+        $(".answerDiv7").hide();
+        $(".timeRemaining").show();
+    
         }
 
         setTimeout(showDiv7, 5000);              
@@ -125,13 +136,16 @@ function showAnswer() {
     else if (questionNumber === 8) {
         $(".incorrectAnswer").hide();
         $(".answerDiv7").show();
+        $(".timeRemaining").hide();
 
         function showDiv8(){
         hideAll();
+        timerReset();
         $("#questionDiv8").show();
         $(".incorrectAnswer").show();
-        $(".congratsDiv").hide();
-        $(".answerDiv8").hide();    
+        $(".answerDiv8").hide();
+        $(".timeRemaining").show();
+    
         }
 
         setTimeout(showDiv8, 5000);              
@@ -140,13 +154,16 @@ function showAnswer() {
     else if (questionNumber === 9) {
         $(".incorrectAnswer").hide();
         $(".answerDiv8").show();
+        $(".timeRemaining").hide();
 
         function showDiv9(){
         hideAll();
+        timerReset();
         $("#questionDiv9").show();
         $(".incorrectAnswer").show();
-        $(".congratsDiv").hide();
-        $(".answerDiv9").hide();    
+        $(".answerDiv9").hide();
+        $(".timeRemaining").show();
+    
         }
 
         setTimeout(showDiv9, 5000);              
@@ -155,13 +172,16 @@ function showAnswer() {
     else if (questionNumber === 10) {
         $(".incorrectAnswer").hide();
         $(".answerDiv9").show();
+        $(".timeRemaining").hide();
 
         function showDiv10(){
         hideAll();
+        timerReset();
         $("#questionDiv10").show();
         $(".incorrectAnswer").show();
-        $(".congratsDiv").hide();
-        $(".answerDiv10").hide();    
+        $(".answerDiv10").hide();
+        $(".timeRemaining").show();
+    
         }
 
         setTimeout(showDiv10, 5000);              
@@ -170,13 +190,15 @@ function showAnswer() {
     else if (questionNumber === 11) {
         $(".incorrectAnswer").hide();
         $(".answerDiv10").show();
+        $(".timeRemaining").hide();
 
         function showDiv11(){
         hideAll();
         displayResults();
         $("#endDiv").show();
         $(".incorrectAnswer").show();
-        $(".answerDiv10").hide();     
+        $(".answerDiv10").hide();
+     
         }
         
         setTimeout(showDiv11, 5000);
@@ -184,6 +206,7 @@ function showAnswer() {
     }
     else {
         $("#startDiv").show();
+        $(".timeRemaining").hide();
         questionNumber = 0;
         correctGuess = 0;
         incorrectGuess = 0;
@@ -191,12 +214,20 @@ function showAnswer() {
 
     };
 }   
-    function countdown() {
-        timeRemaining--;
-    };
 
-    function timerReset() {
-        $(".")
+
+function timerReset() {
+    handle = setInterval(function () {
+        timeRemaining--;
+        $(".timeRemaining").text(timeRemaining);
+        if (timeRemaining < 1) {
+            unansweredGuess++
+            timeRemaining = 30;
+            clearInterval(handle);
+            questionNumberCheck();
+            return(handle);
+        }
+    }, 1000);
     }
 
     function displayResults() {
@@ -226,19 +257,25 @@ $("#startButton").click(function () {
     console.log("Correct: " + correctGuess)
     console.log("Incorrect: " + incorrectGuess)
     console.log("questionNumber: " + questionNumber)
+    console.log("Unanswered: " + unansweredGuess)
 });
 
 $(".correctAnswer").click(function () {
     correctGuess++
+    timeRemaining = 30;
+    clearInterval(handle);
     questionNumberCheck();
     console.log("Correct: " + correctGuess)
     console.log("Incorrect: " + incorrectGuess)
     console.log("questionNumber: " + questionNumber)
+    console.log("Unanswered: " + unansweredGuess)
 
 });
 
 $(".incorrectAnswer").click(function () {
     incorrectGuess++
+    timeRemaining = 30;
+    clearInterval(handle);
     questionNumberCheck();
     console.log("Correct: " + correctGuess)
     console.log("Incorrect: " + incorrectGuess)
